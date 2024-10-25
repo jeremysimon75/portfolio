@@ -3,100 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de [Votre Nom]</title>
+    <title>Mon Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Animation de lancement améliorée -->
-<div id="animation-lancement">
-    <h1>Bienvenue dans mon univers</h1>
-</div>
-
-<!-- Barre de navigation fixe -->
-<header>
-    <nav>
-        <ul>
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#cv">CV</a></li>
-            <li><a href="#bts-sio">BTS SIO</a></li>
-            <li><a href="#stages">Stages</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#situations-pro">Situations professionnelles</a></li>
-            <li><a href="#certification">Certification</a></li>
-            <li><a href="#veille">Veille informationnelle</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- Sections du contenu avec transition -->
-<section id="accueil">
-    <h2>Accueil</h2>
-    <p>Bienvenue sur mon portfolio de cybersécurité.</p>
-</section>
-
-<section id="cv">
-    <h2>CV</h2>
-    <p>Votre CV téléchargeable ici.</p>
-</section>
-
-<section id="bts-sio">
-    <h2>BTS SIO</h2>
-    <p>Description du BTS SIO SISR.</p>
-</section>
-
-<section id="stages">
-    <h2>Stages</h2>
-    <p>Stages effectués en 1ère et 2e années.</p>
-</section>
-
-<section id="projets">
-    <h2>Projets</h2>
-    <p>Présentation des projets réalisés.</p>
-</section>
-
-<section id="situations-pro">
-    <h2>Situations professionnelles</h2>
-    <p>Situations professionnelles rencontrées.</p>
-</section>
-
-<section id="certification">
-    <h2>Certification</h2>
-    <p>Certifications obtenues.</p>
-</section>
-
-<section id="veille">
-    <h2>Veille informationnelle</h2>
-    <p>Veille technologique et informationnelle.</p>
-</section>
-
-<!-- Section Contact sous forme de smartphone -->
-<section id="contact">
-    <h2>Contact</h2>
-    <div class="telephone">
-        <div class="haut-telephone">
-            <div class="camera"></div>
-            <div class="haut-encoche"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Mon Portfolio</div>
+            <ul>
+                <li><a href="#accueil" class="active">Accueil</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#presentation">Présentation</a></li>
+                <li><a href="#stages">Stages</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#situations">Situations Professionnelles</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#veille">Veille Informationnelle</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="accueil" class="section active">
+            <h1>Bienvenue sur mon portfolio</h1>
+            <p>Explorez mes compétences et mes expériences.</p>
+        </section>
+        <section id="cv" class="section">
+            <h2>Mon CV</h2>
+            <a href="mon_cv.pdf" download>Télécharger mon CV</a>
+        </section>
+        <section id="presentation" class="section">
+            <h2>Présentation du BTS SIO</h2>
+            <p>Description du BTS SIO...</p>
+        </section>
+        <section id="stages" class="section">
+            <h2>Stages</h2>
+            <p>Détails sur mes stages...</p>
+        </section>
+        <section id="projets" class="section">
+            <h2>Projets</h2>
+            <p>Détails sur mes projets...</p>
+        </section>
+        <section id="situations" class="section">
+            <h2>Situations Professionnelles</h2>
+            <p>Description de mes situations professionnelles...</p>
+        </section>
+        <section id="certifications" class="section">
+            <h2>Certifications</h2>
+            <div class="certification-container">
+                <div class="certification" onclick="window.open('lien_certification_1', '_blank')">Certification 1</div>
+                <div class="certification" onclick="window.open('lien_certification_2', '_blank')">Certification 2</div>
+                <div class="certification" onclick="window.open('lien_certification_3', '_blank')">Certification 3</div>
+                <div class="certification" onclick="window.open('lien_certification_4', '_blank')">Certification 4</div>
+                <div class="certification" onclick="window.open('lien_certification_5', '_blank')">Certification 5</div>
+                <div class="certification" onclick="window.open('lien_certification_6', '_blank')">Certification 6</div>
+                <div class="certification" onclick="window.open('lien_certification_7', '_blank')">Certification 7</div>
+                <div class="certification" onclick="window.open('lien_certification_8', '_blank')">Certification 8</div>
+                <div class="certification" onclick="window.open('lien_certification_9', '_blank')">Certification 9</div>
+            </div>
+        </section>
+        <section id="veille" class="section">
+            <h2>Veille Informationnelle</h2>
+            <p>Détails sur ma veille informationnelle...</p>
+        </section>
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <div class="smartphone">
+                <div class="notch"></div>
+                <form>
+                    <input type="text" placeholder="Nom" required>
+                    <input type="email" placeholder="Email" required>
+                    <textarea placeholder="Votre message" required></textarea>
+                    <button type="submit">Envoyer</button>
+                </form>
+                <div class="home-button" onclick="scrollToTop()"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/votreprofil" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
+            <a href="https://github.com/votreprofil" target="_blank"><img src="github.png" alt="GitHub"></a>
+            <a href="mailto:votreemail@example.com"><img src="email.png" alt="Email"></a>
         </div>
-        <div class="ecran">
-            <form>
-                <label for="nom">Nom:</label>
-                <input type="text" id="nom" name="nom" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
-        <div class="bas-telephone"></div>
-    </div>
-</section>
-
-<script src="script.js"></script>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
