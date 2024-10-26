@@ -1,154 +1,95 @@
+/* Réinitialisation de base */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #f1f1f1;
+    line-height: 1.6;
 }
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+/* Animation d'ouverture */
+@keyframes entrance {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #333;
-    padding: 10px;
+main {
+    animation: entrance 1s ease-in-out;
 }
-
-.navbar .logo {
-    color: white;
-    font-size: 24px;
-}
-
-.navbar ul {
-    list-style: none;
-    display: flex;
-}
-
-.navbar ul li {
-    margin-left: 20px;
-}
-
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
-}
-
-.navbar ul li a:hover, .navbar ul li a.active {
-    background: #555;
-}
-
+/* Sections */
 .section {
     padding: 60px 20px;
     display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
-
 .section.active {
     display: block;
+    opacity: 1;
 }
-
-.smartphone {
-    width: 375px;
-    height: 667px;
-    background-color: white;
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+/* Formulaire de contact intégré */
+.smartphone-container {
     position: relative;
-    margin: 0 auto;
-    padding: 20px;
+    width: 300px;
+    margin: auto;
 }
-
-.notch {
-    width: 60px;
-    height: 20px;
-    background-color: black;
+.smartphone-frame {
+    width: 100%;
+    height: auto;
+}
+.form-overlay {
     position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 10%;
+    left: 5%;
+    right: 5%;
+    bottom: 12%;
+    background-color: #333;
+    padding: 15px;
     border-radius: 10px;
 }
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form input, form textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    padding: 10px;
-    border: none;
-    background-color: #333;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-form button:hover {
-    background-color: #555;
-}
-
-.home-button {
-    width: 60px;
-    height: 60px;
-    background-color: #333;
-    border-radius: 50%;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    cursor: pointer;
-}
-
-.certification-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.certification {
-    background-color: #e0e0e0;
-    padding: 20px;
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: #f1f1f1;
     text-align: center;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s;
 }
-
-.certification:hover {
-    transform: scale(1.05);
-}
-
-.social-media {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-}
-
-.social-media a {
-    margin: 0 10px;
-}
-
-.social-media img {
+/* Icones de réseaux sociaux */
+.social-icon {
     width: 30px;
     height: 30px;
+    margin: 0 10px;
+    transition: transform 0.3s;
 }
+.social-icon:hover {
+    transform: scale(1.1);
+}
+/* Certification et Veille Containers */
+.certification-container,
+.veille-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+/* Navigation */
+.navbar {
+    background-color: #333;
+}
+.navbar-brand {
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+.nav-link[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)[_{{{CITATION{{{_2{](https://github.com/Mazagu/IconsGroup/tree/8fa2da66cd9ded12fa49aad5711d9c11dedab276/icons_example.php)[_{{{CITATION{{{_3{](https://github.com/RomarioRoot/http-laravel-data-test.com/tree/968e57d07ab0f7e8fef4f46a0f3f26e06d1a62d7/resources%2Fviews%2Fusers%2Findex.blade.php)[_{{{CITATION{{{_4{](https://github.com/Nurakhmet/military_registration/tree/7f85c403ccec8cb2a69e4f67790292f69a54c202/slideshows.php)[_{{{CITATION{{{_5{](https://github.com/Sahed33-m/Small-Projects/tree/63dd6d8cbdb3dde2d28f38a0f684577eafc6de9d/New_Year_Wish%2Findex.php)[_{{{CITATION{{{_6{](https://github.com/TheOkayTiers/td20180406/tree/07f5345f4dfbd383077f942f8092207eaceb6dd2/app%2Fpublic%2Findex.php)[_{{{CITATION{{{_7{](https://github.com/Agilbay04/VLMS-JTI/tree/ac9dee3ecf421da62ff9cf5b76dee9de633b83de/bootstrap-4.6.0%2Fsite%2Fcontent%2Fdocs%2F4.6%2Fcomponents%2Fnavbar.md)[_{{{CITATION{{{_8{](https://github.com/Saurabh-Pandey79/BusinessWebsiteForACServicing/tree/06791782a0aed87eccfdc62cee66dea31231e696/about.php)[_{{{CITATION{{{_9{](https://github.com/MaxAlphaEngineer/inlab/tree/d9b9d28a382d710ee8038219d9a62d4943511abf/resources%2Fviews%2Fhome.blade.php)[_{{{CITATION{{{_10{](https://github.com/Azartex/website/tree/deba2473d212adc1797e6f297eba74b5192ef5ae/index.php)[_{{{CITATION{{{_11{](https://github.com/RICKYMARTIN3967/project1/tree/9d84e16ca5d598320f2ca45fb2db3c5d20539395/OSMS_PROJECT%2Findex.php)[_{{{CITATION{{{_12{](https://github.com/alban-okoby/alban-okoby.github.io/tree/a0559400b8f5f3e89ca9132a3448e821bf302558/index.php)[_{{{CITATION{{{_13{](https://github.com/Cycleurope/Atelier-Cycleurope/tree/2fc511a43d6620205a1343e76840d7075bb55ce9/resources%2Fviews%2Fback%2Ffamilies%2Fcreate.blade.php)[_{{{CITATION{{{_14{](https://github.com/Cycleurope/Atelier-Cycleurope/tree/2fc511a43d6620205a1343e76840d7075bb55ce9/resources%2Fviews%2Fback%2Fweblinks%2Fcreate.blade.php)[_{{{CITATION{{{_15{](https://github.com/CodeforAustralia/vla-orbit/tree/4163e538bf7e5ebb7fed2bf6374db4dc07592040/resources%2Fviews%2Fregistration%2Fcreate.blade.php)[_{{{CITATION{{{_16{](https://github.com/mortuzacrid/CRID-V1.0.1/tree/51a5ec8708d8c88f5366c4509e2153e1f4dc09aa/contactus.php)[_{{{CITATION{{{_17{](https://github.com/FNVI/Authentication/tree/a09e003cb1dc2a8851bf028d1eb65784ad55a169/examples%2Fregular%2Fsignup.php)[_{{{CITATION{{{_18{](https://github.com/vivi-et/bbayouaws/tree/b98fc842a5039d450ff53943f111e7be30dd76ca/resources%2Fviews%2Fsession%2Fcreate.blade.php)[_{{{CITATION{{{_19{](https://github.com/Pritam307/aarogyahomecare_project/tree/cb981c1dfae88888a44f541b45103c50389f6558/contact.php)[_{{{CITATION{{{_20{](https://github.com/VictorAlagwu/Multimedia-E-Bulletin-Board/tree/743483b1f8dcbcb5cd19c80d521c7565c71ddd09/resources%2Fviews%2Fenquiry_form.blade.php)[_{{{CITATION{{{_21{](https://github.com/matttobrien/PizzaTimeWindsor/tree/7eeb0bd7741ca7eb06460dce3212f7651fdf3e3e/html%2Fcontactus.php)[_{{{CITATION{{{_22{](https://github.com/Lordsneak/Project-Fil-Rouge/tree/b2fe35595ce639b966621716014b2c07f0514d16/inc%2Ffooter.php)[_{{{CITATION{{{_23{](https://github.com/rkustas/techarticles/tree/598d65a5c026d9ecd3c7f0258f4a44f93e7029d0/client%2Fpages%2F_document.js)[_{{{CITATION{{{_24{](https://github.com/glauconeto/php_crud/tree/e1b58be34de1bc0b5bbd7fabc7a4c25bba497957/index.php)

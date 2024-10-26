@@ -3,90 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Portfolio</title>
+    <title>Portfolio de Jérémy SIMON</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">Mon Portfolio</div>
-            <ul>
-                <li><a href="#accueil" class="active">Accueil</a></li>
-                <li><a href="#cv">CV</a></li>
-                <li><a href="#presentation">Présentation</a></li>
-                <li><a href="#stages">Stages</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#situations">Situations Professionnelles</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#veille">Veille Informationnelle</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <div class="navbar-brand mx-auto"><a href="#accueil">Mon Portfolio</a></div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="#accueil" class="nav-link active">Accueil</a></li>
+                    <li class="nav-item"><a href="#cv" class="nav-link">CV</a></li>
+                    <li class="nav-item"><a href="#presentation" class="nav-link">Présentation</a></li>
+                    <li class="nav-item"><a href="#stages" class="nav-link">Stages</a></li>
+                    <li class="nav-item"><a href="#projets" class="nav-link">Projets</a></li>
+                    <li class="nav-item"><a href="#situations" class="nav-link">Situations</a></li>
+                    <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li class="nav-item"><a href="#veille" class="nav-link">Veille</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
     <main>
-        <section id="accueil" class="section active">
-            <h1>Bienvenue sur mon portfolio</h1>
-            <p>Explorez mes compétences et mes expériences.</p>
-        </section>
-        <section id="cv" class="section">
-            <h2>Mon CV</h2>
-            <a href="mon_cv.pdf" download>Télécharger mon CV</a>
-        </section>
-        <section id="presentation" class="section">
-            <h2>Présentation du BTS SIO</h2>
-            <p>Description du BTS SIO...</p>
-        </section>
-        <section id="stages" class="section">
-            <h2>Stages</h2>
-            <p>Détails sur mes stages...</p>
-        </section>
-        <section id="projets" class="section">
-            <h2>Projets</h2>
-            <p>Détails sur mes projets...</p>
-        </section>
-        <section id="situations" class="section">
-            <h2>Situations Professionnelles</h2>
-            <p>Description de mes situations professionnelles...</p>
-        </section>
-        <section id="certifications" class="section">
-            <h2>Certifications</h2>
-            <div class="certification-container">
-                <div class="certification" onclick="window.open('lien_certification_1', '_blank')">Certification 1</div>
-                <div class="certification" onclick="window.open('lien_certification_2', '_blank')">Certification 2</div>
-                <div class="certification" onclick="window.open('lien_certification_3', '_blank')">Certification 3</div>
-                <div class="certification" onclick="window.open('lien_certification_4', '_blank')">Certification 4</div>
-                <div class="certification" onclick="window.open('lien_certification_5', '_blank')">Certification 5</div>
-                <div class="certification" onclick="window.open('lien_certification_6', '_blank')">Certification 6</div>
-                <div class="certification" onclick="window.open('lien_certification_7', '_blank')">Certification 7</div>
-                <div class="certification" onclick="window.open('lien_certification_8', '_blank')">Certification 8</div>
-                <div class="certification" onclick="window.open('lien_certification_9', '_blank')">Certification 9</div>
+        <section id="accueil" class="section text-center animate__animated animate__fadeIn">
+            <div class="welcome-text">
+                <h1>Bienvenue sur mon portfolio</h1>
+                <p>Explorez mes compétences et mes expériences.</p>
             </div>
         </section>
-        <section id="veille" class="section">
-            <h2>Veille Informationnelle</h2>
-            <p>Détails sur ma veille informationnelle...</p>
+        <section id="cv" class="section text-center">
+            <h2>Mon CV</h2>
+            <a href="https://drive.google.com/file/d/14M4z2_OxYADBTwpO1pfmctGVmiQhiOiP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Télécharger mon CV</a>
         </section>
-        <section id="contact" class="section">
+        <section id="certifications" class="section text-center">
+            <h2>Certifications</h2>
+            <div class="filter-buttons mb-4">
+                <button onclick="filterCertifications('all')" class="btn btn-outline-light active">Toutes les certifications</button>
+                <button onclick="filterCertifications('cisco')" class="btn btn-outline-light">Cisco</button>
+                <button onclick="filterCertifications('reglementation')" class="btn btn-outline-light">Réglementation</button>
+                <button onclick="filterCertifications('securite')" class="btn btn-outline-light">Sécurité</button>
+                <button onclick="filterCertifications('autres')" class="btn btn-outline-light">Autres</button>
+            </div>
+            <div class="certification-container">
+                <article class="certification cisco">
+                    <img src="certif_cisco.png" alt="Certification Cisco" class="img-fluid">
+                    <h3>Certification Cisco 1</h3>
+                    <a href="lien_certif_cisco_1" target="_blank" rel="noopener noreferrer" class="btn btn-success">Voir l'attestation</a>
+                </article>
+                <!-- Répéter pour chaque certification -->
+            </div>
+        </section>
+        <section id="veille" class="section text-center">
+            <h2>Veille Informationnelle</h2>
+            <div class="veille-container">
+                <article class="veille-item">
+                    <h3>Sujet de veille 1</h3>
+                    <p>Description du sujet de veille.</p>
+                </article>
+                <!-- Répéter pour chaque sujet de veille -->
+            </div>
+        </section>
+        <section id="contact" class="section text-center">
             <h2>Contact</h2>
-            <div class="smartphone">
-                <div class="notch"></div>
-                <form>
-                    <input type="text" placeholder="Nom" required>
-                    <input type="email" placeholder="Email" required>
-                    <textarea placeholder="Votre message" required></textarea>
-                    <button type="submit">Envoyer</button>
-                </form>
-                <div class="home-button" onclick="scrollToTop()"></div>
+            <div class="smartphone-container">
+                <img src="smartphone-frame.png" alt="Smartphone Frame" class="smartphone-frame">
+                <div class="form-overlay">
+                    <form id="contact-form" class="p-4">
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-warning">Envoyer</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
-    <footer>
-        <div class="social-media">
-            <a href="https://www.linkedin.com/in/votreprofil" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
-            <a href="https://github.com/votreprofil" target="_blank"><img src="github.png" alt="GitHub"></a>
-            <a href="mailto:votreemail@example.com"><img src="email.png" alt="Email"></a>
+    <footer class="bg-dark text-light text-center py-3">
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="https://www.linkedin.com/in/votreprofil" target="_blank" rel="noopener noreferrer"><img src="linkedin.png" alt="LinkedIn" class="social-icon"></a>
+                <a href="https://github.com/votreprofil" target="_blank" rel="noopener noreferrer"><img src="github.png" alt="GitHub" class="social-icon"></a>
+                <a href="mailto:votreemail@example.com"><img src="email.png" alt="Email" class="social-icon"></a>
+            </div>
+            <p>&copy; 2024 Jérémy SIMON - Tous droits réservés</p>
         </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
