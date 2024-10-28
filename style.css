@@ -69,12 +69,28 @@ body, html {
     background-color: #1a1a1a;
     padding: 15px;
     border-radius: 10px;
+    z-index: 10;
+    overflow: hidden; /* Ajout pour éviter le débordement */
 }
 
-.smartphone-container {
-    position: relative;
-    width: 300px; /* Largeur du smartphone */
-    margin: auto; /* Centrer le smartphone sur la page */
+.form-group {
+    margin-bottom: 15px; /* Espacement entre les groupes de formulaire */
+}
+
+.file-input {
+    display: block; /* L'input s'affiche comme un élément de bloc */
+    margin-top: 5px; /* Espacement entre le label et l'input */
+    color: #fff; /* Couleur du texte */
+}
+
+.file-name {
+    display: block; /* Affiche le nom du fichier sur une ligne distincte */
+    margin-top: 5px; /* Espace au-dessus du nom du fichier */
+    font-size: 14px; /* Taille de police du texte */
+    color: #ccc; /* Couleur du texte */
+    white-space: normal; /* Permet le retour à la ligne */
+    word-wrap: break-word; /* Coupe les mots longs pour qu’ils s’adaptent */
+    max-width: 100%; /* Assure que le nom du fichier respecte la largeur */
 }
 
 /* Cercles de contact */

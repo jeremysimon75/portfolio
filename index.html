@@ -306,16 +306,22 @@
                     <form id="contact-form" class="p-4" action="https://getform.io/f/aollgezb" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="name">Votre NOM et Prénom</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+                            <input type="text" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Votre Adresse Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" name="email" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Votre message</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                            <label for="message">Votre message (facultatif)</label>
+                            <input type="text" name="message">
                         </div>
+                        <div class="form-group">
+                            <label for="file">Pièce jointe (facultatif)</label>
+                            <input type="file" name="file" id="file">
+                            <span class="file-name" id="fileName"></span>
+                        </div>
+                        
                         <input type="hidden" name="_gotcha" style="display:none !important">
                         <button type="submit" class="btn btn-warning">Envoyer</button>
                     </form>

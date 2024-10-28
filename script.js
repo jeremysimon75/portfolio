@@ -77,3 +77,11 @@ function trierArticles() {
     container.innerHTML = '';
     articles.forEach(article => container.appendChild(article));
 }
+
+const fileInput = document.getElementById('file');
+const fileNameDisplay = document.getElementById('fileName');
+
+fileInput.addEventListener('change', function() {
+    const fileName = fileInput.files[0] ? fileInput.files[0].name : 'Aucun fichier choisi';
+    fileNameDisplay.textContent = fileName; // Met à jour le texte avec le nom du fichier
+});
