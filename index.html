@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio de Jérémy SIMON</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="style.css">
@@ -11,19 +12,21 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="navbar-brand mx-auto"><a href="#accueil">Mon Portfolio</a></div>
+            <div class="navbar-brand" style="color: #ffdd57; font-weight: bold; font-size: 20px;">
+                <a href="index.html" style="text-decoration: none; color: #ffdd57;">MON PORTFOLIO</a>
+            </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a href="#accueil" class="nav-link active">Accueil</a></li>
                     <li class="nav-item"><a href="#cv" class="nav-link">CV</a></li>
-                    <li class="nav-item"><a href="#presentation" class="nav-link">Présentation</a></li>
+                    <li class="nav-item"><a href="#bts" class="nav-link">BTS SIO</a></li>
                     <li class="nav-item"><a href="#stages" class="nav-link">Stages</a></li>
                     <li class="nav-item"><a href="#projets" class="nav-link">Projets</a></li>
-                    <li class="nav-item"><a href="#situations" class="nav-link">Situations</a></li>
+                    <li class="nav-item"><a href="#situations" class="nav-link">Situations professionnelles</a></li>
                     <li class="nav-item"><a href="#certifications" class="nav-link">Certifications</a></li>
                     <li class="nav-item"><a href="#veille" class="nav-link">Veille</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
@@ -32,76 +35,357 @@
         </nav>
     </header>
     <main>
-        <section id="accueil" class="section text-center animate__animated animate__fadeIn">
-            <div class="welcome-text">
+        <section id="accueil" class="section text-center">
+            <div id="welcome">
                 <h1>Bienvenue sur mon portfolio</h1>
-                <p>Explorez mes compétences et mes expériences.</p>
             </div>
         </section>
         <section id="cv" class="section text-center">
-            <h2>Mon CV</h2>
-            <a href="https://drive.google.com/file/d/14M4z2_OxYADBTwpO1pfmctGVmiQhiOiP/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Télécharger mon CV</a>
-        </section>
-        <section id="certifications" class="section text-center">
-            <h2>Certifications</h2>
-            <div class="filter-buttons mb-4">
-                <button onclick="filterCertifications('all')" class="btn btn-outline-light active">Toutes les certifications</button>
-                <button onclick="filterCertifications('cisco')" class="btn btn-outline-light">Cisco</button>
-                <button onclick="filterCertifications('reglementation')" class="btn btn-outline-light">Réglementation</button>
-                <button onclick="filterCertifications('securite')" class="btn btn-outline-light">Sécurité</button>
-                <button onclick="filterCertifications('autres')" class="btn btn-outline-light">Autres</button>
+            <div class="container">
+                <p id="presentation"></p> <!-- Le texte se trouve dans script.js -->
             </div>
-            <div class="certification-container">
-                <article class="certification cisco">
-                    <img src="certif_cisco.png" alt="Certification Cisco" class="img-fluid">
-                    <h3>Certification Cisco 1</h3>
-                    <a href="lien_certif_cisco_1" target="_blank" rel="noopener noreferrer" class="btn btn-success">Voir l'attestation</a>
-                </article>
-                <!-- Répéter pour chaque certification -->
-            </div>
-        </section>
-        <section id="veille" class="section text-center">
-            <h2>Veille Informationnelle</h2>
-            <div class="veille-container">
-                <article class="veille-item">
-                    <h3>Sujet de veille 1</h3>
-                    <p>Description du sujet de veille.</p>
-                </article>
-                <!-- Répéter pour chaque sujet de veille -->
-            </div>
-        </section>
-        <section id="contact" class="section text-center">
-            <h2>Contact</h2>
-            <div class="smartphone-container">
-                <img src="smartphone-frame.png" alt="Smartphone Frame" class="smartphone-frame">
-                <div class="form-overlay">
-                    <form id="contact-form" class="p-4">
-                        <div class="form-group">
-                            <label for="name">Nom</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
+            </br>
+            <a href="https://drive.google.com/file/d/1-JP7IuR_SptQE7VaqGUKNjn-cnKoJbBo/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">Consulter mon CV</a>
+            <br>
+        </section>     
+        <section id="bts" class="section text-center">
+            <h2>Qu'est-ce que le BTS SIO ?</h2>
+        </br>
+            <div class="card-container">
+                <div class="card flip-card" onclick="toggleFlip(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>BTS SIO</h3>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                        <div class="card-back">
+                            <p>Le BTS SIO (Services Informatiques aux Organisations) est un diplôme d'État en deux ans qui forme les étudiants à répondre aux besoins informatiques des entreprises. Il couvre la gestion et sécurité des services, le développement d’applications et la transformation numérique, préparant ainsi à travailler en équipe pour garantir des infrastructures informatiques efficaces et sécurisées.</p>
                         </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                </div>
+                <div class="card flip-card" onclick="toggleFlip(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Option SISR</h3>
                         </div>
-                        <button type="submit" class="btn btn-warning">Envoyer</button>
-                    </form>
+                        <div class="card-back">
+                            <p>L'option SISR (Solutions d’Infrastructure, Systèmes et Réseaux) forme les étudiants à concevoir, installer, sécuriser et maintenir les infrastructures réseaux d’une organisation. Les étudiants apprennent à gérer la disponibilité des ressources et la cybersécurité des systèmes, contribuant à la fiabilité des services informatiques.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card flip-card" onclick="toggleFlip(this)">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3>Option SLAM</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>L'option SLAM (Solutions Logicielles et Applications Métiers) prépare les étudiants à concevoir, développer et maintenir des applications adaptées aux besoins d’une entreprise. Ils acquièrent des compétences en programmation, gestion de bases de données, et sécurisation des applications pour garantir des solutions logicielles efficaces et sécurisées.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+        <section id="stages" class="section text-center animate__animated animate__fadeIn">
+            <h2>Mes stages :</h2>
+            </br>
+                <div class="stage-container">
+                    <div class="stage-card">
+                        <img src="havas.png" alt="Logo Havas Group" class="stage-logo">
+                    <h3>Stage de fin de 1ère année de BTS SIO</h3>
+                    <p><strong>Havas IT</strong> - Stage</p>
+                    <p><strong>Durée :</strong> 13 Mai 2024 - 14 Juin 2024 (5 semaines)</p>
+                    <p><strong>Lieu :</strong> Puteaux, Île-de-France, France</p>
+                    <ul class="stage-details">
+                        <li>Configuration de postes Mac et Windows, incluant réinitialisation, enrollement et réinstallation</li>
+                        <li>Administration avec Intune/Jamf, gestion des mises à jour, de la conformité et de la sécurité</li>
+                        <li>Gestion de l’Active Directory : droits d’accès, débloquage, réinitialisation des comptes et mots de passes</li>
+                        <li>Gestion des incidents : réception, traitement et résolution des tickets de support</li>
+                        <li>Support technique d’urgence pour problèmes critiques et soutient pour les réunions importantes</li>
+                        <li>Maintenance matérielle : remplacement d'écrans, d'imprimantes et de périphériques</li>
+                        <li>Gestion de l’inventaire, suivi des stocks et cycle de vie des équipements</li>
+                        <li>Coordination avec prestataires pour le service après-vente et les rebuts</li>
+                        <li>Formation continue, participation à des sessions internes</li>
+                        <li>Intégration dans une équipe technique, partage des connaissances</li>
+                        <li>Travail d’équipe et mises en commun</li>
+                        <li>Mentorat avec techniciens seniors</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="projets" class="section text-center">
+                <p>Page en cours de construction...</p>
+        </section>
+        <section id="situations" class="section text-center">
+            <p>Page en cours de construction...</p>
+    </section>
+        <section id="certifications" class="section text-center">
+            <h2>Mes certifications :</h2>
+            </br>
+            <div class="filter-buttons mb-4">
+                <button onclick="filterCertifications('all')" class="btn btn-filter active">Toutes les certifications</button>
+                <button onclick="filterCertifications('cisco')" class="btn btn-filter">Cisco</button>
+                <button onclick="filterCertifications('reglementation')" class="btn btn-filter">Réglementation</button>
+                <button onclick="filterCertifications('securite')" class="btn btn-filter">Sécurité</button>
+                <button onclick="filterCertifications('autres')" class="btn btn-filter">Autres</button>
+            </div>            
+            <div class="certification-container">
+                <article class="certification cisco">
+                    <h3>Cisco Certified Network Associate (CCNA1)</h3>
+                    <a href="https://drive.google.com/file/d/1d__T43eXc1quC3hpGCBR_3zFLndJ8U1I/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-success">Voir l'attestation</a>
+                </article>
+                <article class="certification cisco">
+                    <h3>Networking Essentials</h3>
+                    <a href="https://drive.google.com/file/d/1-8Jj5w0bL2HRp3IzcHzsLZKL0qIKhDmx/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-success">Voir l'attestation</a>
+                </article>
+                <article class="certification autres">
+                    <h3>NDG Linux Unhatched</h3>
+                    <a href="https://drive.google.com/file/d/1-3c5vORO_lhBPbIZTchKJhOXI_xu-02x/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-success">Voir l'attestation</a>
+                </article>
+                <article class="certification securite">
+                    <h3>Introduction à la cybersécurité</h3>
+                    <a href="https://drive.google.com/file/d/1--XPdC9qiRyZDUWG9dUXosjb1rE-k8mb/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-success">Voir l'attestation</a>
+                </article>
+                <article class="certification reglementation">
+                    <h3>SecNumacadémie MOOC</h3>
+                    <a href="https://drive.google.com/file/d/1-GKUAe2unPyFjbvEs7N-hslLd1WNhVlR/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-success">Voir l'attestation</a>
+                </article>
+                <article class="certification autres">
+                    <h3>PIX</h3>
+                    <a href="https://drive.google.com/file/d/1-9xxMJndGD19aeu7bGM2ko13BfQbUjME/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-success">Voir l'attestation</a>
+                </article>
+            </div>
+        </section>
+    
+        <section id="veille" class="section text-center">
+            <h2>Ma Veille Informationnelle :</h2>
+            <h2>La Cyber Sécurité dans l'Industrie Musicale : Protéger les Artistes et les Données</h2>
+            </br>
+            <div class="veille-container" id="veilleContainer">
+                <article class="veille-item" data-date="2024-04-03"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">3 Avril 2024</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://static.cnews.fr/sites/all/themes/cnewsv2/cnews-logo.svg" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>Menaces de l'IA sur l'industrie musicale : plus 200 artistes de renom tirent la sonnette d'alarme</h3>
+                            <p>Une lettre ouverte de l'Artist Rights Alliance, signée par plus de 200 personnalités majeures des industries de la musique et du divertissement, appelle les sociétés d'IA et les plates-formes de services de musique numérique à s'engager à ne pas développer ni utiliser d'outils d'IA «qui sapent ou remplacent le système».</p>
+                            <a href="https://www.cnews.fr/culture/2024-04-03/menaces-de-lia-sur-lindustrie-musicale-plus-200-artistes-de-renom-dont-billie" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="veille-item" data-date="2017-06-23"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">23 Juin 2017</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://www.bemynounou.com/wp-content/uploads/2017/06/Unknown-1.png" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>Une industrie musicale bouleversée : quels impacts pour les artistes ?</h3>
+                            <p>L’industrie musicale connaît une forte évolution depuis quelques années comme nous le montre la diminution des ventes ainsi que l’apparition de supports innovants. La citation du compositeur et chef d’orchestre américain Leonard Bernstein, "On ne vend pas la musique. On la partage", est plus que jamais adéquate à l'heure du streaming.</p>
+                            <a href="https://www.journaldunet.com/publishers/1195758-une-industrie-musicale-bouleversee-quels-impacts-pour-les-artistes/" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="veille-item" data-date="2023-12-20"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">20 Décembre 2023</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://info.haas-avocats.com/hubfs/Logo%20HAAS%202022.svg" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>L’IA dans l’industrie musicale : la polémique sur les « faux artistes »</h3>
+                            <p>L’Intelligence Artificielle, en constante évolution, confère aux algorithmes informatiques une capacité créatrice inédite. Cependant, la créativité ne réside pas seulement dans l’œuvre finale, mais aussi dans le raisonnement et l’organisation qui conduisent à cette réalisation.</p>
+                            <a href="https://info.haas-avocats.com/droit-digital/lia-dans-lindustrie-musicale-la-polemique-sur-les-faux-artistes" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="veille-item" data-date="2018-11-19"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">19 Novembre 2018</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://media.licdn.com/dms/image/v2/C4D0BAQGDv81HXUR9Tw/company-logo_200_200/company-logo_200_200/0/1630542673904/silicon_fr_logo?e=2147483647&v=beta&t=33HbMG9lR5ZPZDq2HvCFnEQDgQpqsOxv2_8dXCiRFn0" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>Comment la Blockchain pourrait révolutionner l'industrie musicale ?</h3>
+                            <p>Depuis les années 2000, l'industrie musicale a connu d'importantes disruptions : apparition du MP3, multiplication des réseaux de téléchargement « peer to peer[i] » et développement des plateformes de streaming. Celles-ci tendent à désavantager les musiciens qui s'estiment « lésés ».</p>
+                            <a href="https://www.silicon.fr/Thematique/cybersecurite-1371/Breves/Comment-la-Blockchain-pourrait-revolutionner-l-industrie-musicale--458373.htm" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="veille-item" data-date="2024-10-23"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">23 Octobre 2024</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://www.usine-digitale.fr/images/mol-module/logo-usine-digitale.svg" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>Les artistes se mobilisent contre l'utilisation de leurs œuvres pour l'entraînement de modèles d'IA</h3>
+                            <p>Des milliers d'artistes se mobilisent contre l'utilisation sans licence d'oeuvres auxquelles ils ont contribué par les entreprises technologiques qui cherchent à tout prix des données pour alimenter leurs modèles d'intelligence artificielle. Une bataille qui pourrait s'avérer longue et semée d'embûches.</p>
+                            <a href="https://www.usine-digitale.fr/article/les-artistes-se-mobilisent-contre-l-utilisation-de-leurs-uvres-pour-l-entrainement-de-modeles-d-ia.N2220983" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="veille-item" data-date="2024-10-27"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">27 Octobre 2024</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Futura-logo.jpg" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>Bonne nouvelle pour les droits des artistes : HarmonyCloak empoisonne les IA pour protéger la musique !</h3>
+                            <p>L'entraînement des intelligences artificielles génératives nécessite une grande quantité de données. Bien souvent, les chercheurs récupèrent les contenus en masse sur le Web, sans obtenir le consentement de leurs auteurs. Pour pouvoir se défendre, ces derniers font de plus en plus appel à des solutions qui permettent d'empoisonner toute IA qui tenterait de s'en servir.</p>
+                            <a href="https://www.futura-sciences.com/tech/breves/technologie-bonne-nouvelle-droits-artistes-harmonycloak-empoisonne-ia-proteger-musique-10143/" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="veille-item" data-date="2024-09-03"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">3 Septembre 2024</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://www.2051.fr/wp-content/uploads/2021/10/logox400-1.png" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>Comment l’industrie musicale peut-elle protéger les droits des artistes face à l’essor de l’intelligence artificielle ?</h3>
+                            <p>L’intelligence artificielle (IA) est en train de transformer de nombreuses industries, et la musique n’échappe pas à cette révolution.</p>
+                            <a href="https://www.2051.fr/actualite/comment-lindustrie-musicale-peut-elle-proteger-les-droits-des-artistes-face-a-lessor-de-lintelligence-artificielle/" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="veille-item" data-date="2018-04-26"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">26 Avril 2018</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://trustmyscience.com/wp-content/uploads/2016/01/TMS-nav-logo-retina.png.webp" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>L’impact des technologies numériques sur l’industrie musicale</h3>
+                            <p>La technologie est un domaine très vaste, et qui évolue à une vitesse fulgurante quel que soit le secteur. De ce fait, elle a énormément d’impacts, que ce soit sur nos vies ou sur l’industrie au sens large. Bien que ces retombées puissent être positives pour la plupart, il ne faut pas négliger les effets néfastes, qui nécessitent souvent de repenser les modes de vie, des entreprises, voire des secteurs entiers. Cela est notamment le cas de l’industrie musicale, également appelée « industrie du disque », ce qui n’est plus très approprié de nos jours.</p>
+                            <a href="https://trustmyscience.com/impact-des-technologies-numeriques-sur-l-industrie-musicale/" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="veille-item" data-date="2023-09-04"> <!-- Attention AAAA-MM-JJ -->
+                    <div class="veille-header">
+                        <div class="veille-date">
+                            <span class="date">4 Septembre 2023</span> <!-- Ne pas oublier de changer dans <article> -->
+                            </br>
+                            <img src="https://prowly-prod.s3.eu-west-1.amazonaws.com/uploads/landing_page/template_background/327162/677a7b1ce9dfc7581a26f3e7f1f45522.jpg" alt="Logo du journal" class="logo">
+                        </div>
+                        <div class="veille-content">
+                            <h3>Le Web3.0 pourrait-il révolutionner l'industrie musicale ?</h3>
+                            <p>L’industrie musicale est sur le point de connaître un changement majeur, grâce à l’introduction de la technologie Web3. Le Web3, également connu sous le nom d’internet décentralisé, représente la troisième génération de services internet, promouvant un système dans lequel les individus ont le contrôle de leurs propres données et transactions. La blockchain (une technologie du Web3) permet de créer des applications décentralisées (DApps), des smart-contracts et des actifs sous forme de token, qui ont tous le potentiel de changer l’industrie musicale.</p>
+                            <a href="https://www.bridge.audio/fr/blog/le-web3-pourrait-il-revolutionner-lindustrie-musicale/" class="veille-button" target="_blank">Lire l'article</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        
+        <section id="contact" class="section text-center">
+            <h2>Contactez-moi :</h2>
+            <br>
+            <div class="smartphone-container">
+                <img src="smartphone-frame.png" alt="Smartphone Frame" class="smartphone-frame">
+                <div class="form-overlay">
+                    <form id="contact-form" class="p-4" action="https://getform.io/f/aollgezb" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="name">Votre NOM et Prénom</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Votre Adresse Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Votre message</label>
+                            <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                        </div>
+                        <input type="hidden" name="_gotcha" style="display:none !important">
+                        <button type="submit" class="btn btn-warning">Envoyer</button>
+                    </form>
+                </div>
+                <!-- Ronds pour le contact -->
+                <div class="circle-container">
+                    <div class="circle" onclick="toggleFlip(this, 'Téléphone')">
+                        <div class="circle-inner">
+                            <div class="circle-front">
+                                <img src="telephone.png" alt="Téléphone" class="circle-icon">
+                            </div>
+                            <div class="circle-back">
+                                <p><b>Mon téléphone :</b></br><a href="tel:0783489914" target="_blank" rel="noopener noreferrer">07 83 48 99 14</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle" onclick="toggleFlip(this, 'Email')">
+                        <div class="circle-inner">
+                            <div class="circle-front">
+                                <img src="email.png" alt="Email" class="circle-icon">
+                            </div>
+                            <div class="circle-back">
+                                <p><b>Mon email :</b></br><a href="mailto:jeremy75.simon@outlook.fr" target="_blank" rel="noopener noreferrer">jeremy75.simon@</br>outlook.fr</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle" onclick="toggleFlip(this, 'Localisation')">
+                        <div class="circle-inner">
+                            <div class="circle-front">
+                                <img src="localisation.png" alt="Localisation" class="circle-icon">
+                            </div>
+                            <div class="circle-back">
+                                <p><b>Localisation :</b></br>Paris,</br>France</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle" onclick="toggleFlip(this, 'Aide')">
+                        <div class="circle-inner">
+                            <div class="circle-front">
+                                <img src="aide.png" alt="Aide" class="circle-icon">
+                            </div>
+                            <div class="circle-back">
+                                <p><b>Aide :</b></br>Questions ou informations ? Remplissez le formulaire ou contactez moi !</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="circle" onclick="toggleFlip(this, 'LinkedIn')">
+                        <div class="circle-inner">
+                            <div class="circle-front">
+                                <img src="linkedin.png" alt="LinkedIn" class="circle-icon">
+                            </div>
+                            <div class="circle-back">
+                                <p><b>Mon LinkedIn :</b></br><a href="https://www.linkedin.com/in/jeremy-simon75/" target="_blank" rel="noopener noreferrer">jeremy-simon75</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> 
     </main>
-    <footer class="bg-dark text-light text-center py-3">
+    <footer>
+    </br>
+    </br>
         <div class="footer-content">
             <div class="social-media">
-                <a href="https://www.linkedin.com/in/votreprofil" target="_blank" rel="noopener noreferrer"><img src="linkedin.png" alt="LinkedIn" class="social-icon"></a>
+                <a href="https://www.linkedin.com/in/jeremy-simon75/" target="_blank" rel="noopener noreferrer"><img src="linkedin.png" alt="LinkedIn" class="social-icon"></a>
                 <a href="https://github.com/votreprofil" target="_blank" rel="noopener noreferrer"><img src="github.png" alt="GitHub" class="social-icon"></a>
-                <a href="mailto:votreemail@example.com"><img src="email.png" alt="Email" class="social-icon"></a>
+                <a href="mailto:jeremy75.simon@outlook.fr"><img src="email.png" alt="Email" class="social-icon"></a>
             </div>
-            <p>&copy; 2024 Jérémy SIMON - Tous droits réservés</p>
+            <p>&copy; 2024 Jérémy SIMON - Tous droits réservés</br>Page web entièrement codée en HTML, CSS et JavaScript</p>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

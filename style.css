@@ -4,12 +4,22 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1a1a1a;
     color: #f1f1f1;
     line-height: 1.6;
+    padding-top: 60px; /* Ajustez cette valeur selon la hauteur de votre barre de navigation */
 }
+
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 /* Animation d'ouverture */
 @keyframes entrance {
     0% {
@@ -24,9 +34,7 @@ body {
         opacity: 1;
     }
 }
-main {
-    animation: entrance 1s ease-in-out;
-}
+
 /* Sections */
 .section {
     padding: 60px 20px;
@@ -34,36 +42,186 @@ main {
     opacity: 0;
     transition: opacity 0.5s ease;
 }
+
 .section.active {
     display: block;
     opacity: 1;
 }
-/* Formulaire de contact intégré */
+
+/* Formulaire de contact intégré */ 
 .smartphone-container {
     position: relative;
     width: 300px;
     margin: auto;
 }
+
 .smartphone-frame {
     width: 100%;
     height: auto;
 }
+
 .form-overlay {
     position: absolute;
     top: 10%;
     left: 5%;
     right: 5%;
     bottom: 12%;
-    background-color: #333;
+    background-color: #1a1a1a;
     padding: 15px;
     border-radius: 10px;
 }
+
+.smartphone-container {
+    position: relative;
+    width: 300px; /* Largeur du smartphone */
+    margin: auto; /* Centrer le smartphone sur la page */
+}
+
+/* Cercles de contact */
+.circle-container {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 300px;
+    height: 300px;
+}
+
+/* Taille ajustée et animation de flottaison */
+.circle {
+    position: absolute;
+    width: 200px; /* Taille réduite */
+    height: 200px;
+    perspective: 1000px;
+    margin: 10px;
+    animation: float 3s ease-in-out infinite; /* Animation de flottaison */
+    cursor: pointer; /* Curseur pour indiquer la possibilité de cliquer */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Légère flottaison vers le haut */
+    }
+}
+
+/* Structure des cercles */
+.circle-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 50%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Animation de retournement au clic */
+.circle-inner.clicked {
+    transform: rotateY(180deg); /* Tourne sur l'axe Y lors du clic */
+    background-color: transparent;
+}
+
+/* Style générique pour redimensionner les icônes */
+.circle-icon {
+    width: 50%; /* Ajuste la taille de l'icône à 60% de la taille du cercle */
+    height: 50%;
+    object-fit: contain;
+}
+
+/* Faces des cercles */
+.circle-front, .circle-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle-front {
+    background-color: #1a1a1a;
+    color: #ffdd57;
+}
+
+.circle-back {
+    background-color: #ffdd57;
+    color: #1a1a1a;
+    transform: rotateY(180deg);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Effet de survol */
+.circle:hover {
+    transform: scale(1.05); /* Agrandit légèrement au survol */
+    box-shadow: 0 12px 40px #ffdd57;
+    border-radius: 50%;
+}
+
+.circle:hover .circle-inner {
+    background-color: transparent; /* Assurez-vous que le fond reste transparent */
+}
+
+/* Positionnement des cercles */
+.circle:nth-child(1) { /* Téléphone */
+    top: 48%;
+    left: -80%;
+}
+
+.circle:nth-child(2) { /* Email */
+    top: 95%;
+    left: 130%;
+}
+
+.circle:nth-child(3) { /* Localisateur */
+    top: 120%;
+    left: -120%;
+}
+
+.circle:nth-child(4) { /* Aide */
+    top: -23%;
+    left: -140%;
+}
+
+.circle:nth-child(5) { /* LinkedIn */
+    top: 10%;
+    left: 160%;
+}
+
+/* Style pour le texte agrandi */
+.circle-inner p {
+    font-size: 18px; /* Ajuste cette valeur selon la taille souhaitée */
+}
+
+/* Style pour les liens */
+.circle-inner a {
+    text-decoration: none;
+    color: black; /* Liens en noir */
+}
+
+.circle-inner a:hover {
+    color: #444444; /* Un gris foncé pour l'effet de survol */
+}
+
 /* Footer */
-footer {
+.footer-content {
+    position: relative;
     background-color: #1a1a1a;
     color: #f1f1f1;
     text-align: center;
+    padding: auto;
+    width: 100%;
+    bottom: 0;
 }
+
 /* Icones de réseaux sociaux */
 .social-icon {
     width: 30px;
@@ -71,25 +229,435 @@ footer {
     margin: 0 10px;
     transition: transform 0.3s;
 }
+
 .social-icon:hover {
     transform: scale(1.1);
 }
-/* Certification et Veille Containers */
-.certification-container,
-.veille-container {
+
+/* Styles pour la section Certifications */
+.certification-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    margin-top: 20px;
 }
+
+/* Styles pour chaque certification */
+.certification {
+    background-color: #2a2a2a;
+    border: 2px solid #f0ad4e; /* Jaune pour le contour */
+    border-radius: 10px;
+    padding: 20px;
+    width: 350px; /* Largeur fixe */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation de transformation */
+    animation: entrance 0.5s ease-in-out; /* Animation d'entrée */
+}
+
+.certification:hover {
+    transform: scale(1.05); /* Agrandissement au survol */
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5); /* Ombre au survol */
+}
+
+/* Styles de texte */
+.certification h3 {
+    color: #ffcc00; /* Couleur du texte */
+    margin: 10px 0; /* Marges */
+}
+
+/* Bouton d'attestation */
+.btn-success {
+    background-color: #ffcc00; /* Jaune */
+    color: #1a1a1a; /* Texte sombre */
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #ffd700; /* Jaune clair au survol */
+    color: #fff; /* Texte clair au survol */
+}
+
+.btn-filter {
+    color: #000000; /* Couleur du texte du bouton */
+    background-color: #ffcc00; /* Fond du bouton */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none; /* Supprimer le soulignement */
+    transition: background-color 0.3s, transform 0.3s; /* Transition douce */
+    border: none; /* Supprimer la bordure par défaut */
+    cursor: pointer; /* Curseur pointer pour indiquer un bouton cliquable */
+    margin: 0 5px; /* Espacement horizontal entre les boutons */
+}
+
+.btn-filter:hover {
+    background-color: #ffd700; /* Couleur plus claire au survol */
+    color: #fff; /* Texte clair au survol */
+    transform: translateY(-3px); /* Légère élévation au survol */
+}
+
 /* Navigation */
 .navbar {
-    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 9%;
+    background-color: transparent; /* Fond transparent par défaut */
+    transition: background-color 0.3s ease; /* Transition douce pour le changement de couleur */
+    z-index: 1000; /* S'assurer qu'elle soit au-dessus des autres éléments */
 }
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Centrer les éléments de la barre de navigation */
+}
+
+.navbar li {
+    margin: 8px; /* Espacement entre les onglets */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff; /* Couleur du texte par défaut */
+    padding: 15px 10px;
+    display: block;
+    position: relative; /* Pour positionner le pseudo-élément */
+}
+
+.navbar a:hover {
+    color: #ffcc00; /* Changer la couleur au survol */
+}
+
+.navbar a::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px; /* Épaisseur de la ligne */
+    background-color: #ffcc00; /* Couleur de la ligne */
+    transform: scaleX(0); /* Ne pas afficher la ligne par défaut */
+    transition: transform 0.3s ease; /* Transition douce pour l'animation */
+    position: absolute;
+    bottom: 0; /* Positionner la ligne en bas de l'onglet */
+    left: 0;
+    font-size: 14px;
+}
+
+.navbar a:hover::after {
+    transform: scaleX(1); /* Afficher la ligne au survol */
+}
+
 .navbar-brand {
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
     font-size: 1.5rem;
 }
-.nav-link[_{{{CITATION{{{_1{](https://github.com/NicoLarson/exercice_php/tree/751d31e78d5fbfe9852f5be20c6ce41a955051d7/readme.md)[_{{{CITATION{{{_2{](https://github.com/Mazagu/IconsGroup/tree/8fa2da66cd9ded12fa49aad5711d9c11dedab276/icons_example.php)[_{{{CITATION{{{_3{](https://github.com/RomarioRoot/http-laravel-data-test.com/tree/968e57d07ab0f7e8fef4f46a0f3f26e06d1a62d7/resources%2Fviews%2Fusers%2Findex.blade.php)[_{{{CITATION{{{_4{](https://github.com/Nurakhmet/military_registration/tree/7f85c403ccec8cb2a69e4f67790292f69a54c202/slideshows.php)[_{{{CITATION{{{_5{](https://github.com/Sahed33-m/Small-Projects/tree/63dd6d8cbdb3dde2d28f38a0f684577eafc6de9d/New_Year_Wish%2Findex.php)[_{{{CITATION{{{_6{](https://github.com/TheOkayTiers/td20180406/tree/07f5345f4dfbd383077f942f8092207eaceb6dd2/app%2Fpublic%2Findex.php)[_{{{CITATION{{{_7{](https://github.com/Agilbay04/VLMS-JTI/tree/ac9dee3ecf421da62ff9cf5b76dee9de633b83de/bootstrap-4.6.0%2Fsite%2Fcontent%2Fdocs%2F4.6%2Fcomponents%2Fnavbar.md)[_{{{CITATION{{{_8{](https://github.com/Saurabh-Pandey79/BusinessWebsiteForACServicing/tree/06791782a0aed87eccfdc62cee66dea31231e696/about.php)[_{{{CITATION{{{_9{](https://github.com/MaxAlphaEngineer/inlab/tree/d9b9d28a382d710ee8038219d9a62d4943511abf/resources%2Fviews%2Fhome.blade.php)[_{{{CITATION{{{_10{](https://github.com/Azartex/website/tree/deba2473d212adc1797e6f297eba74b5192ef5ae/index.php)[_{{{CITATION{{{_11{](https://github.com/RICKYMARTIN3967/project1/tree/9d84e16ca5d598320f2ca45fb2db3c5d20539395/OSMS_PROJECT%2Findex.php)[_{{{CITATION{{{_12{](https://github.com/alban-okoby/alban-okoby.github.io/tree/a0559400b8f5f3e89ca9132a3448e821bf302558/index.php)[_{{{CITATION{{{_13{](https://github.com/Cycleurope/Atelier-Cycleurope/tree/2fc511a43d6620205a1343e76840d7075bb55ce9/resources%2Fviews%2Fback%2Ffamilies%2Fcreate.blade.php)[_{{{CITATION{{{_14{](https://github.com/Cycleurope/Atelier-Cycleurope/tree/2fc511a43d6620205a1343e76840d7075bb55ce9/resources%2Fviews%2Fback%2Fweblinks%2Fcreate.blade.php)[_{{{CITATION{{{_15{](https://github.com/CodeforAustralia/vla-orbit/tree/4163e538bf7e5ebb7fed2bf6374db4dc07592040/resources%2Fviews%2Fregistration%2Fcreate.blade.php)[_{{{CITATION{{{_16{](https://github.com/mortuzacrid/CRID-V1.0.1/tree/51a5ec8708d8c88f5366c4509e2153e1f4dc09aa/contactus.php)[_{{{CITATION{{{_17{](https://github.com/FNVI/Authentication/tree/a09e003cb1dc2a8851bf028d1eb65784ad55a169/examples%2Fregular%2Fsignup.php)[_{{{CITATION{{{_18{](https://github.com/vivi-et/bbayouaws/tree/b98fc842a5039d450ff53943f111e7be30dd76ca/resources%2Fviews%2Fsession%2Fcreate.blade.php)[_{{{CITATION{{{_19{](https://github.com/Pritam307/aarogyahomecare_project/tree/cb981c1dfae88888a44f541b45103c50389f6558/contact.php)[_{{{CITATION{{{_20{](https://github.com/VictorAlagwu/Multimedia-E-Bulletin-Board/tree/743483b1f8dcbcb5cd19c80d521c7565c71ddd09/resources%2Fviews%2Fenquiry_form.blade.php)[_{{{CITATION{{{_21{](https://github.com/matttobrien/PizzaTimeWindsor/tree/7eeb0bd7741ca7eb06460dce3212f7651fdf3e3e/html%2Fcontactus.php)[_{{{CITATION{{{_22{](https://github.com/Lordsneak/Project-Fil-Rouge/tree/b2fe35595ce639b966621716014b2c07f0514d16/inc%2Ffooter.php)[_{{{CITATION{{{_23{](https://github.com/rkustas/techarticles/tree/598d65a5c026d9ecd3c7f0258f4a44f93e7029d0/client%2Fpages%2F_document.js)[_{{{CITATION{{{_24{](https://github.com/glauconeto/php_crud/tree/e1b58be34de1bc0b5bbd7fabc7a4c25bba497957/index.php)
+
+.nav-link {
+    font-weight: bold;
+    padding: 15px 20px;
+    color: #f1f1f1;
+}
+
+.nav-link:hover {
+    color: #ffdd57;
+}
+
+/* Style de texte d'accueil high-tech avec effet néon et animation de lumière */
+/* Amélioration de l'effet néon et animation */
+#welcome h1 {
+    font-size: 3rem;
+    color: #ffcc00;
+    text-shadow: 
+        0 0 10px #ffcc00, 
+        0 0 20px #ffcc00, 
+        0 0 40px #ff9933, 
+        0 0 80px #ff6600;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#welcome {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animation néon plus intense */
+@keyframes neon-glow {
+    0% {
+        text-shadow: 
+            0 0 10px #ffcc00, 
+            0 0 20px #ffcc00, 
+            0 0 30px #ff9933, 
+            0 0 40px #ff6600;
+    }
+    100% {
+        text-shadow: 
+            0 0 20px #ffcc00, 
+            0 0 30px #ffcc00, 
+            0 0 60px #ff9933, 
+            0 0 80px #ff6600;
+    }
+}
+
+@keyframes light-swipe {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Animation de fade-in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cartes de présentation du BTS SIO */
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.card {
+    width: 350px;
+    height: 450px;
+    perspective: 1000px;
+    cursor: pointer;
+    box-sizing: border-box; /* Inclut la bordure dans les dimensions */
+    overflow: hidden; /* Cache tout débordement */
+    background-color: #1a1a1a; /* Couleur de fond identique pour éviter le blanc */
+    border-radius: 10px;
+}
+
+.flip-card {
+    border: 2px solid #ffdd57; /* Bordure jaune */
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card.flip .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card-front {
+    background-color: #1a1a1a; /* Couleur d'arrière-plan de la carte avant */
+    color: #ffdd57; /* Texte jaune */
+}
+
+.card-back {
+    background-color: #ffdd57; /* Couleur d'arrière-plan de la carte arrière */
+    color: #1a1a1a; /* Texte sombre */
+    transform: rotateY(180deg);
+}
+
+.card h3, .card p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05); /* Légère élévation et agrandissement */
+    box-shadow: 0 4px 20px #ffdd57; /* Ombre portée */
+}
+
+/* Styles pour la section Stages */
+.stage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.stage-card {
+    background-color: #2a2a2a;
+    border: 2px solid #f0ad4e; /* Jaune pour le contour */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 4px 12px #f0ad4e;
+    transition: transform 0.3s;
+}
+
+.stage-card:hover {
+    transform: scale(1.05);
+}
+
+.stage-logo {
+    max-width: 200px;
+    margin-bottom: 15px;
+}
+
+.stage-details {
+    list-style-type: none;
+    padding-left: 0;
+    text-align: left;
+}
+
+.stage-details li {
+    margin: 10px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.stage-details li:before {
+    content: "✔️ "; /* Ajoute une coche devant chaque élément */
+    position: absolute;
+    left: 0;
+    color: #f0ad4e; /* Jaune */
+}
+
+/* Présentation dans le CV */
+.container {
+    font-family: 'Courier New', Courier, monospace; /* Police monospacée */
+    font-size: 21px; /* Réduction de la taille de la police */
+    color: lime; /* Optionnel : texte en vert pour simuler un terminal */
+    text-align: left;
+}
+
+.btn-yellow {
+    color: #000000; /* Couleur du texte du bouton */
+    background-color: #ffcc00; /* Fond du bouton */
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none; /* Supprimer le soulignement */
+    transition: background-color 0.3s, transform 0.3s; /* Transition douce */
+    border: none; /* Supprimer la bordure par défaut */
+    cursor: pointer; /* Curseur pointer pour indiquer un bouton cliquable */
+}
+
+.btn-yellow:hover {
+    background-color: #ffd700; /* Couleur plus claire au survol */
+    color: #fff; /* Texte clair au survol */
+    transform: translateY(-3px); /* Légère élévation au survol */
+}
+
+/* Blocs de veille informationnelles */
+.section {
+    padding: 20px;
+}
+
+.veille-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les éléments enfants horizontalement */
+    text-align: left;
+    width: 100%; /* Prend toute la largeur de la page */
+}
+
+.veille-item {
+    background-color: #2a2a2a;
+    border: 2px solid #f0ad4e;
+    border-radius: 10px;
+    width: 90%; /* 85% de la largeur de la page */
+    margin: 10px auto; /* Centre les blocs avec margin auto */
+    transition: transform 0.3s;
+}
+
+.veille-item:hover {
+    transform: scale(1.02); /* Ajoute un effet de zoom au survol */
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5); /* Ombre au survol */
+}
+
+.veille-header {
+    display: flex; /* Utiliser flexbox pour centrer les éléments */
+    justify-content: space-between; /* Espace entre la date et le contenu */
+    align-items: center; /* Aligne verticalement au centre */
+    padding: 10px; /* Ajoute un peu d'espace autour */
+}
+
+.veille-date {
+    display: flex;
+    flex-direction: column; /* Aligne date et logo en colonne */
+    justify-content: center; /* Centre verticalement */
+    align-items: center; /* Centre horizontalement */
+    width: 20%; /* 15% de la largeur du bloc */
+    height: 100%; /* Prend toute la hauteur du conteneur parent */
+}
+
+.date {
+    font-weight: bold;
+    color: #ffcc00; /* Couleur de la date */
+}
+
+.logo {
+    max-width: 98%; /* Assure que le logo ne déborde pas */
+    height: auto; /* Garde le ratio de l'image */
+}
+
+
+.veille-content {
+    width: 95%; /* Reste de la largeur */
+    padding-left: 10px; /* Espace entre date/logo et contenu */
+}
+
+.veille-button {
+    background-color: #ffcc00;
+    color: #2a2a2a; /* Couleur du texte */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Enlève le soulignement */
+    margin-top: 10px; /* Espace entre la description et le bouton */
+}
+
+.veille-button:hover {
+    background-color: #ffcc00; /* Couleur de fond au survol */
+    transform: scale(1.02); /* Ajoute un effet de zoom au survol */
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.5); /* Ombre au survol */
+    color: #fff; /* Texte clair au survol */
+}
+
+.veille-content a {
+    text-decoration: none;
+    color: black; /* Liens en noir */
+}
