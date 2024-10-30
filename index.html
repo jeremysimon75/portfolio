@@ -46,7 +46,7 @@
             </div>
             </br>
             <a href="https://drive.google.com/file/d/1-JP7IuR_SptQE7VaqGUKNjn-cnKoJbBo/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn btn-yellow">Consulter mon CV</a>
-            <br>
+            <a href="https://drive.usercontent.google.com/u/0/uc?id=1-JP7IuR_SptQE7VaqGUKNjn-cnKoJbBo&export=download" rel="noopener noreferrer" class="btn btn-yellow">Télécharger mon CV</a>
         </section>     
         <section id="bts" class="section text-center">
             <h2>Qu'est-ce que le BTS SIO ?</h2>
@@ -90,26 +90,41 @@
                 <div class="stage-container">
                     <div class="stage-card">
                         <img src="havas.png" alt="Logo Havas Group" class="stage-logo">
-                    <h3>Stage de fin de 1ère année de BTS SIO</h3>
-                    <p><strong>Havas IT</strong> - Stage</p>
-                    <p><strong>Durée :</strong> 13 Mai 2024 - 14 Juin 2024 (5 semaines)</p>
-                    <p><strong>Lieu :</strong> Puteaux, Île-de-France, France</p>
-                    <ul class="stage-details">
-                        <li>Configuration de postes Mac et Windows, incluant réinitialisation, enrollement et réinstallation</li>
-                        <li>Administration avec Intune/Jamf, gestion des mises à jour, de la conformité et de la sécurité</li>
-                        <li>Gestion de l’Active Directory : droits d’accès, débloquage, réinitialisation des comptes et mots de passes</li>
-                        <li>Gestion des incidents : réception, traitement et résolution des tickets de support</li>
-                        <li>Support technique d’urgence pour problèmes critiques et soutient pour les réunions importantes</li>
-                        <li>Maintenance matérielle : remplacement d'écrans, d'imprimantes et de périphériques</li>
-                        <li>Gestion de l’inventaire, suivi des stocks et cycle de vie des équipements</li>
-                        <li>Coordination avec prestataires pour le service après-vente et les rebuts</li>
-                        <li>Formation continue, participation à des sessions internes</li>
-                        <li>Intégration dans une équipe technique, partage des connaissances</li>
-                        <li>Travail d’équipe et mises en commun</li>
-                        <li>Mentorat avec techniciens seniors</li>
-                    </ul>
+                        <h3>Stage de fin de 1ère année de BTS SIO</h3>
+                        <p><strong>Havas IT</strong> - Stage</p>
+                        <p><strong>Durée :</strong> 13 Mai 2024 - 14 Juin 2024 (5 semaines)</p>
+                        <p><strong>Lieu :</strong> Puteaux, Île-de-France, France</p>
+                        <ul class="stage-details">
+                            <li>Configuration de postes Mac et Windows, incluant réinitialisation, enrollement et réinstallation</li>
+                            <li>Administration avec Intune/Jamf, gestion des mises à jour, de la conformité et de la sécurité</li>
+                            <li>Gestion de l’Active Directory : droits d’accès, débloquage, réinitialisation des comptes et mots de passes</li>
+                            <li>Gestion des incidents : réception, traitement et résolution des tickets de support</li>
+                            <li>Support technique d’urgence pour problèmes critiques et soutient pour les réunions importantes</li>
+                            <li>Maintenance matérielle : remplacement d'écrans, d'imprimantes et de périphériques</li>
+                            <li>Gestion de l’inventaire, suivi des stocks et cycle de vie des équipements</li>
+                            <li>Coordination avec prestataires pour le service après-vente et les rebuts</li>
+                            <li>Formation continue, participation à des sessions internes</li>
+                            <li>Intégration dans une équipe technique, partage des connaissances</li>
+                            <li>Travail d’équipe et mises en commun</li>
+                            <li>Mentorat avec techniciens seniors</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+                <div class="stage-container">
+                    <div class="stage-card">
+                        <img src="debeaux.jpg" alt="Logo Havas Group" class="stage-logo">
+                        <h3>Stage de 3e</h3>
+                        <p><strong>Debeaux Transit</strong> - Stage</p>
+                        <p><strong>Durée :</strong> 16 Décembre 2019 - 20 Décembre 2019 (1 semaine)</p>
+                        <p><strong>Lieu :</strong> Tremblay-en-France, Île-de-France, France</p>
+                        <ul class="stage-details">
+                            <li>Découverte du monde professionnel</li>
+                            <li>Découverte d’un service informatique</li>
+                            <li>Gestion d’un parc informatique (environ 30 postes)</li>
+                            <li>Mise en place d’un SI et d’un PGI pour les besoins de l’import/export aérien, maritime et routier</li>
+                        </ul>
+                    </div>
+                </div>
         </section>
         <section id="projets" class="section text-center">
                 <p>Page en cours de construction...</p>
@@ -317,16 +332,15 @@
                             <input type="text" name="message">
                         </div>
                         <div class="form-group">
-                            <label for="file">Pièce jointe (facultatif)</label>
-                            <input type="file" name="file" id="file">
-                            <span class="file-name" id="fileName"></span>
+                            <label for="file" style="color: #fff;">Pièce jointe (facultatif)</label>
+                            <input type="file" name="file" class="file-input" id="file" style="display: none;">
+                            <button type="button" id="customFileButton" class="btn btn-warning">Choisir un fichier</button>
+                            <span class="file-name" id="fileName">Aucun fichier choisi</span>
                         </div>
-                        
                         <input type="hidden" name="_gotcha" style="display:none !important">
                         <button type="submit" class="btn btn-warning">Envoyer</button>
                     </form>
                 </div>
-                <!-- Ronds pour le contact -->
                 <div class="circle-container">
                     <div class="circle" onclick="toggleFlip(this, 'Téléphone')">
                         <div class="circle-inner">

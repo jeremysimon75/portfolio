@@ -70,27 +70,32 @@ body, html {
     padding: 15px;
     border-radius: 10px;
     z-index: 10;
-    overflow: hidden; /* Ajout pour éviter le débordement */
 }
 
 .form-group {
-    margin-bottom: 15px; /* Espacement entre les groupes de formulaire */
+    margin-bottom: 15px;
 }
 
-.file-input {
-    display: block; /* L'input s'affiche comme un élément de bloc */
-    margin-top: 5px; /* Espacement entre le label et l'input */
-    color: #fff; /* Couleur du texte */
+.custom-button {
+    padding: 8px 15px;
+    background-color: #4CAF50; /* Couleur du bouton */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
 }
 
 .file-name {
-    display: block; /* Affiche le nom du fichier sur une ligne distincte */
-    margin-top: 5px; /* Espace au-dessus du nom du fichier */
-    font-size: 14px; /* Taille de police du texte */
-    color: #ccc; /* Couleur du texte */
-    white-space: normal; /* Permet le retour à la ligne */
-    word-wrap: break-word; /* Coupe les mots longs pour qu’ils s’adaptent */
-    max-width: 100%; /* Assure que le nom du fichier respecte la largeur */
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #ccc;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Tronque le texte si nécessaire */
+    cursor: pointer; /* Change le curseur pour indiquer qu'on peut survoler */
 }
 
 /* Cercles de contact */
@@ -532,15 +537,16 @@ body, html {
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 50px;
 }
 
 .stage-card {
     background-color: #2a2a2a;
-    border: 2px solid #f0ad4e; /* Jaune pour le contour */
+    border: 2px solid #ffdd57; /* Jaune pour le contour */
     border-radius: 10px;
     padding: 20px;
     max-width: 600px;
-    box-shadow: 0 4px 12px #f0ad4e;
+    box-shadow: 0 4px 12px #ffdd57;
     transition: transform 0.3s;
 }
 
@@ -589,6 +595,7 @@ body, html {
     transition: background-color 0.3s, transform 0.3s; /* Transition douce */
     border: none; /* Supprimer la bordure par défaut */
     cursor: pointer; /* Curseur pointer pour indiquer un bouton cliquable */
+    margin: 20px;
 }
 
 .btn-yellow:hover {

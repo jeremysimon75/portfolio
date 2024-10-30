@@ -78,10 +78,22 @@ function trierArticles() {
     articles.forEach(article => container.appendChild(article));
 }
 
-const fileInput = document.getElementById('file');
-const fileNameDisplay = document.getElementById('fileName');
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('file');
+    const customFileButton = document.getElementById('customFileButton');
+    const fileNameDisplay = document.getElementById('fileName');
 
-fileInput.addEventListener('change', function() {
-    const fileName = fileInput.files[0] ? fileInput.files[0].name : 'Aucun fichier choisi';
-    fileNameDisplay.textContent = fileName; // Met à jour le texte avec le nom du fichier
+    // Ouvrir le sélecteur de fichier lorsque le bouton est cliqué
+    customFileButton.addEventListener('click', function() {
+        fileInput.click();
+    });
+
+    // Afficher le nom du fichier choisi et le définir comme infobulle (tooltip)
+    fileInput.addEventListener('change', function() {
+        const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : 'Aucun fichier choisi';
+        
+        // Définir le texte complet comme infobulle et comme contenu du champ de texte
+        fileNameDisplay.textContent = fileName;
+        fileNameDisplay.title = fileName; // Affiche le nom complet en infobulle
+    });
 });
